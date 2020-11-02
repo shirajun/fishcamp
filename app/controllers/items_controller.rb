@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_admin, except: :show
+  before_action :set_item,  except: [:new, :create]
   def new
     @item = Item.new
   end
@@ -13,10 +14,8 @@ class ItemsController < ApplicationController
     end
   end
   def show
-    @item = Item.find(params[:id])
   end
   def edit
-    @item = Item.find(params[:id])
   end
   def update
     @item.update(item_params)
@@ -25,6 +24,10 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
 
   private
@@ -43,5 +46,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     end
   end
-
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
