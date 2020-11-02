@@ -1,0 +1,90 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header'>
+  <div class='nav'>
+    <h1 class='lists-left'>
+     ようこそ
+    </h1>
+    <ul class='lists-right'>
+      <% if user_signed_in? %>
+       <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
+       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+    <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+    <% end %>
+    </ul>
+  </div>
+</header>
+<div class="main">
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      人生を変えるCAMP<span>T</span>RIP
+    </h2>
+    <p class='service-explain'>
+      大切なのは、"行動"です
+    </p>
+    <% if user_signed_in? && current_user.admin? %>
+    <div class='post-btn'>
+      <%= link_to "item", new_item_path %>
+      <%= link_to "blog", new_blog_path %>
+    </div>
+    <% end %>
+
+  </div>
+  <div class='item-contents'>
+    <h2 class='title'>ピックアップアイテム</h2>
+    <ul class='item-lists'>
+
+      <% @items.each do |item|%>
+      <li class='list'>
+        <%= link_to item_path(item) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>  
+        </div>
+        <div class='item-info'>
+          <h2 class='item-name'>
+            <%= item.name %>
+          </h2>
+          <h3 class="">
+            <%= item.text %>
+          </h3>
+          <%# <% if item.purchase != nil %>
+          <div class='item-price'>
+            <span><%= item.price %>円<br>(税込み)</span> 
+          </div>
+          <div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+          <%# <% end %>
+        </div>
+        <% end %> 
+      </li>
+      <% end %> 
+   </ul>
+  </div>
+  <%# /商品一覧 %>
+  <div class='blog-contents'>
+    <h2 class='title'>店主のブログ</h2>
+    <ul class='blog-lists'>
+      <% @blogs.each do |blog| %>
+      <li class='list'>
+        <%= link_to blog_path(blog) do %>
+        <h2 class="blog-title">
+            <%= blog.title %>
+        </h2>
+        <div class='blog-img-content'>
+        <% if blog.image.attached? %>
+          <%= image_tag blog.image, class: "blog-img" %>
+        <% end %>  
+        </div>
+        <div class='blog-content'>
+          <h3 class='blog'>
+            <%= blog.text %>
+          </h3>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
