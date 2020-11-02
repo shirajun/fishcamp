@@ -1,0 +1,45 @@
+<div class="blog-contents">
+  <header class="blog-header">
+   <h1>編集</h1>
+  </header>
+  <div>
+     <% if @blog.image.attached? %>
+      <%= image_tag @blog.image, class:"show-img" %>
+     <% end %>
+    </div>
+  <div class="blog-main">
+    <h2>ブログ入力</h2>
+    <%=form_with model: @blog, local: true do |f| %>
+    <%# <div class="img-upload"> %>
+      <div class="weight-bold-text">
+        IMAGE
+      </div>
+      <div class="click-upload">
+        <p>
+          CLICK HERE ⏬
+        </p>
+        <%= f.file_field :image, id:"blog-img" %>
+      <%# </div> %>
+    </div>
+    <div class="new-blogs">
+      <div class="weight-bold-text">
+        TITLE
+      </div>
+      <%= f.text_area :title, class:"blogs-text", id:"blog-title", placeholder:"書いてね", rows:"1", maxlength:"20" %>
+      <div class="blog">
+       <div class="weight-bold-text">
+         TEXT
+       </div>
+       <%= f.text_area :text, class:"blogs-text", id:"blog-text", placeholder:"書いてね", rows:"12", maxlength:"1000" %>
+      </div>
+    </div>
+    <div class="blog-btn-content">
+      <%= f.submit "EDIT", class:"blog-btn" %>
+      <%=link_to 'RETURN', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+  </div>
+  <footer class="blog-footer">
+    商売<span>繁</span>盛
+  </footer>
+</div>

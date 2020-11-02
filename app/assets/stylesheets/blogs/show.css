@@ -1,0 +1,59 @@
+.show-header {
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 30px 0;
+  font-size: x-large;
+  font-weight: bold;
+}
+.blog-show, .item-show {
+  background-color: whitesmoke;
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 5vh 0; */
+}
+.show-box, .item-box {
+  background-color: white;
+  width: 70vw;
+  min-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 10vw;
+}
+.show-img {
+  width: 50vw;
+}
+.sold-out, .item-price-box {
+  margin-top: 10px;
+  font-size: 3vh;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item-price {
+  font-size: 3vh;
+}
+.item-postage {
+  color: #000;
+}
+.show-btn {
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
+  text-align: center;
+  
+}
+.edit-btn {
+  color: #000;
+}
+.destroy-btn {
+  color: #000;
+
+}
+.item-text {
+  font-size: 2.8vh;
+  margin-top: 10vh;
+}

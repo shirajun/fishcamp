@@ -1,0 +1,23 @@
+<header class="show-header">
+  <%= @blog.title %>
+</header>
+
+
+<div class="blog-show">
+  <div class="show-box">
+    <div>
+      <% if @blog.image.attached? %>
+      <%= image_tag @blog.image, class:"show-img" %>
+      <% end %>
+    </div>
+    <h3>
+      <%= @blog.text %>
+    </h3>
+    <div class="show-btn">
+    <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'EDIT', edit_blog_path, class:"edit-btn" %>
+    <%= link_to 'DESTROY', blog_path, method: :delete, class:"destroy-btn" %>
+    <% end %>
+    </div>
+  </div>
+</div>
