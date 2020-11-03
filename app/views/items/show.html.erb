@@ -21,13 +21,16 @@
     </div>
 
     <div class="show-btn">
-    <% if  current_user.admin? && user_signed_in? %> 
+    <% if user_signed_in? && current_user.admin? %> 
     <%= link_to 'EDIT', edit_item_path, method: :get, class: "edit-btn" %>
     <%= link_to 'DESTROY', item_path, method: :delete, class:'destroy-btn' %>
-    <%# <% elsif @item.purchase == nil %> 
-    <%# <%= link_to '購入画面に進む', item_purchases_path(@item) ,class:"item-red-btn" %> 
     <% end %>
     </div>
+    <div>
+      <%# <% elsif @item.purchase == nil %> 
+      <%= link_to '購入画面に進む', item_purchases_path(@item) ,class:"item-red-btn" %>
+    </div>
+    <%# <% end %> %>
 
     <div class="item-text">
       <%= @item.text %>
