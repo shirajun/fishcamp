@@ -48,14 +48,15 @@
           <%# <h3 class="">
             <%= item.text %>
           <%# </h3>  %>
-          <%# <% if item.purchase != nil %>
+          <% if item.purchase == nil %>
           <div class='item-price'>
             <span><%= item.price %>円<br>(税込み)</span> 
           </div>
+          <% else %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
-          <%# <% end %>
+          <% end %>
         </div>
         <% end %> 
       </li>
