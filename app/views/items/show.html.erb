@@ -27,7 +27,7 @@
     <% end %>
     </div>
     <div>
-      <% unless @item.purchase == nil %> 
+      <% if @item.purchase == nil %> 
       <%= link_to '購入画面に進む', item_purchases_path(@item) ,class:"item-red-btn" %>
     </div>
       <% end %> 
