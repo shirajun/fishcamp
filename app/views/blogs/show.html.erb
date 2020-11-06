@@ -20,4 +20,23 @@
     <% end %>
     </div>
   </div>
+
+  <div class="comment-box">
+    <%= form_with model: [@blog, @message] do |f| %>
+      <%= f.text_area :text, class:"comment-text", id:"text", rows:"12", maxlength:"1000" %>
+      <%= f.submit 'comment', class:"comment-btn" %>
+        <%# <span>コメントする<span> %>
+    <% end %>
+  </div>
+  <div id="messages">
+    <% @messages.reverse_each do |message| %>
+     <p><%= message.text %></p>
+    <% end %>
+  </div>
 </div>
+
+<footer>
+  <div class="blog-comment-content">
+    <%=link_to 'RETURN', root_path, class:"back-btn" %>
+  </div>
+</footer>
