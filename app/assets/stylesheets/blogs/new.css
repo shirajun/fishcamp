@@ -24,18 +24,18 @@ h2 {
   margin-bottom: 8vh;
 }
 
+.image-upload {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
 .weight-bold-text {
   font-weight: bold;
   min-width: 170px;
   margin-bottom: 5px;
   text-align: center;
 }
-.img-upload {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 2vh 0;
-}
+
 .click-upload {
   margin: 15px 0;
 }

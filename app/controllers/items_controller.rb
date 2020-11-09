@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_admin, except: :show
   before_action :set_item,  except: [:new, :create]
   def new
+    
     @item = Item.new
   end
   def create
