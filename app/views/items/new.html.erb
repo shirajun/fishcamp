@@ -5,7 +5,6 @@
   <div class="blog-main">
     <h2>商品入力</h2>
     <%=form_with model: @item, local: true do |f| %>
-    <%# <div class="img-upload"> %>
       <div class="weight-bold-text">
         IMAGE
       </div>
@@ -13,9 +12,10 @@
         <p>
           CLICK HERE ⏬
         </p>
-        <%= f.file_field :image, id:"blog-img" %>
+        <%= f.file_field :image, class:"upimg", id:"img" %>
       </div>
-    <%# </div> %>
+          
+      <div class="item-img" id="img-up"></div>
     <div class="new-blogs">
       <div class="weight-bold-text">
         TITLE
@@ -46,6 +46,7 @@
       <%=link_to 'RETURN', root_path, class:"back-btn" %>
     </div>
   <% end %>
+  <%= image_tag @item.image, size:'185x50', id:"img-up" if @item.image.present? %>
   </div>
   <footer class="blog-footer">
     商売<span>繁</span>盛
