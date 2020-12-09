@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
   def update
     @item.update(item_params)
-    if @blog.valid?
+    if @item.valid?
       redirect_to root_path
     else
       render :edit

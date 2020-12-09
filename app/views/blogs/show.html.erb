@@ -31,7 +31,7 @@
      <% @messages.reverse_each do |message| %>
       <% if message.blog_id  == @blog.id %>
       <p><%= message.text %></p>
-      <p class="message-user"><%= message.user[:name] %></p>
+      <div class="message-user"><%= message.user[:name] %></div>
       <% end %>
      <% end %>
     </div>
